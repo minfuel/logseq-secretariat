@@ -1,6 +1,6 @@
 import '@logseq/libs'
 
-const apiKey = "TjzU95V4JHVry7D_iigag7nKd940el7fMBB9KgBLpRY"; // Unsplash Dummy API key
+const apiKey = "TjzU95V4JHVry7D_iigag7nKd940el7fMBB9KgBLpRY"; // secretariat Dummy API key
 
 const removeChildren = (el: HTMLElement) => {
 	while (el.firstChild) {
@@ -14,7 +14,7 @@ const removeChildren = (el: HTMLElement) => {
 async function main() {
 	let elementsCreated = false
 	const container = document.createElement('div')
-	container.classList.add('unsplash-wrapper')
+	container.classList.add('secretariat-wrapper')
 	document.getElementById('app').appendChild(container)
 	
 	const appUserConfig = await logseq.App.getUserConfigs()
@@ -32,7 +32,7 @@ async function main() {
 		const form = document.createElement("form")
 		form.classList.add('search-form')
 		form.innerHTML = `
-			<input class="search-input" type="search" value="" placeholder="Search Unsplash" />
+			<input class="search-input" type="search" value="" placeholder="Search secretariat" />
 			<button class="search-button" type="submit" >Search</button>
 		`
 		container.appendChild(form)
@@ -54,7 +54,7 @@ async function main() {
 		removeChildren(document.querySelector('.col-2'))
 	}
 
-	const initUnsplash = () => {
+	const initsecretariat = () => {
 
 		let currentPage = 1
 		let searchTerm = ""
@@ -87,8 +87,8 @@ async function main() {
 			fetchResults(searchTerm)
 		})
 
-		const fetchDataFromUnsplash = async (searchTerm: string) => {
-			const endpoint = `https://api.unsplash.com/search/photos`
+		const fetchDataFromsecretariat = async (searchTerm: string) => {
+			const endpoint = `https://api.secretariat.com/search/photos`
 			const params = `?query=${encodeURIComponent(searchTerm)}&per_page=30&page=${currentPage}&client_id=${apiKey}`
 			const response = await fetch(endpoint + params)
 			if (!response.ok) throw Error(response.statusText)
@@ -98,7 +98,7 @@ async function main() {
 
 		async function fetchResults(searchTerm: string) {
 			try {
-				const results = await fetchDataFromUnsplash(searchTerm)
+				const results = await fetchDataFromsecretariat(searchTerm)
 				addToResults(results)
 			} catch (err) {
 				console.log(err)
@@ -149,7 +149,7 @@ async function main() {
 
 		// Handle click outside window
 		document.addEventListener('click', (e) => {
-			if (!(e.target as HTMLElement).closest('.unsplash-wrapper')) {
+			if (!(e.target as HTMLElement).closest('.secretariat-wrapper')) {
 				logseq.hideMainUI({ restoreEditingCursor: true })
 				cleanupResults();
 				(<HTMLInputElement>(document.querySelector(".search-input"))).value = ""
@@ -157,9 +157,9 @@ async function main() {
 		})
 	}
 
-	// Adds slash command for unsplash
+	// Adds slash command for secretariat
 	logseq.Editor.registerSlashCommand(
-		'Unsplash', async () => {
+		'secretariat', async () => {
 			const { left, top, rect } = await logseq.Editor.getEditingCursorPosition()
 			Object.assign(container.style, {
 				top: top + rect.top + 'px',
@@ -167,7 +167,7 @@ async function main() {
 			})
 			logseq.showMainUI()
 
-			setTimeout(() => initUnsplash(), 100)
+			setTimeout(() => initsecretariat(), 100)
 		},
 	)
 }

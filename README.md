@@ -1,8 +1,8 @@
-# Unsplash Image Plugin for Logseq
+# secretariat Image Plugin for Logseq
 
 I've been enjoying Logseq more and more lately, but found myself missing some features from Notion, Framer, Figma, etc. The ability to quickly add a relevant image anywhere was one such feature.
 
-This plugin adds `/unsplash` command to Logseq, and let's you search the entire Unsplash library of 3 Million+ images within a couple of keystrokes.
+This plugin adds `/secretariat` command to Logseq, and let's you search the entire secretariat library of 3 Million+ images within a couple of keystrokes.
 
 You can add them to your notes in one click, then resize them if you wish.
 

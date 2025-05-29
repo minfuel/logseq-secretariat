@@ -1,7 +1,7 @@
 {
-	"name": "logseq-unsplash",
+	"name": "logseq-secretariat",
 	"version": "0.0.1",
-	"description": "A Logseq plugin to add Unsplash images via slash commands 📷",
+	"description": "A Logseq plugin to add secretariat images via slash commands 📷",
 	"main": "dist/index.html",
 	"author": "@clearlysid",
 	"license": "MIT",
@@ -15,7 +15,7 @@
 	},
 	"dependencies": {},
 	"logseq": {
-		"id": "unsplash_image_yw5wnkfga",
+		"id": "secretariat_image_yw5wnkfga",
 		"icon": "./icon.png"
 	}
 }
